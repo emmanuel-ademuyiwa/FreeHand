@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: SIZES.small,
     justifyContent: "center",
+    paddingBottom: SIZES.xLarge,
   },
   imageFrameContainer: {
     flex: 1,
     gap: SIZES.medium,
     flexDirection: "row",
-    minHeight: "39%",
+    minHeight: "14%",
     margin: "auto",
   },
   imageFrame: {
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   },
   introTextContainer: {
     flex: 1,
-    marginTop: SIZES.xLarge * 2,
+    marginTop: SIZES.large * 2,
   },
   text: {
     fontFamily: FONT.bold,
@@ -50,10 +51,19 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
   },
 
+  introText: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.medium,
+    color: COLORS.white,
+    marginTop: SIZES.xSmall,
+  },
+
   btnContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: SIZES.xxLarge,
+    maxHeight: 50,
   },
   btnBorder: {
     padding: 10,

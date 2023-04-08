@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const ForgetPassword = () => {
+const Trending = () => {
   return (
     <View>
-      <Text>ForgetPassword</Text>
+      <Text>Trending</Text>
     </View>
   );
 };
 
-export default ForgetPassword;
+export default Trending;

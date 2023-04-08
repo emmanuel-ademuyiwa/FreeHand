@@ -6,18 +6,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./inputField.style";
 import { COLORS } from "../../constants";
 
-const InputField = ({ name, secureTextEntry, ...props }) => {
+const InputField = ({ name, label, secureTextEntry, ...props }) => {
   const [field, meta] = useField({ name });
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{name}</Text>
+      <Text style={styles.label}>{label}</Text>
       <View>
         <View style={styles.inputFieldWrapper}>
           <TextInput
             style={styles.inputField}
             placeholderTextColor={COLORS.veryLightPrimary}
             secureTextEntry={secureTextEntry}
+            keyboardAppearance="dark"
             {...props}
           />
           {secureTextEntry && (

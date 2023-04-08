@@ -6,18 +6,12 @@ import { useLayoutEffect } from "react";
 const Details = () => {
   const navigation = useNavigation();
 
-//   useLayoutEffect(() => {
-//     navigation.setOptions({
-//       headerShown: false,
-//     });
-//   }, []);
-
   return (
     <View style={styles.container}>
       <Button
         title="Go back"
         onPress={() => {
-          navigation.navigate("HomeScreen");
+          navigation.navigate("home-screen");
         }}
       />
     </View>

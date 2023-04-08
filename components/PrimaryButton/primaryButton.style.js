@@ -8,27 +8,32 @@ const styles = StyleSheet.create({
     height: 50,
     gap: SIZES.xSmall,
     alignItems: "center",
+    justifyContent: "center",
   },
-  label: {
+  label: (login) => ({
     fontFamily: FONT.medium,
-    color: COLORS.black,
+    color: login ? COLORS.white : COLORS.black,
     fontSize: SIZES.medium,
     textTransform: "capitalize",
-  },
-  button: (icon) => ({
+  }),
+  button: (icon, login) => ({
     flex: 1,
     flexDirection: "row",
     gap: SIZES.xxSmall,
-    backgroundColor: icon ? COLORS.white : COLORS.secondary,
+    backgroundColor: icon
+      ? COLORS.white
+      : login
+      ? COLORS.deepGreen
+      : COLORS.secondary,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: SIZES.xxSmall / 2,
     height: "100%",
-    width: "80%",
+    width: "85%",
   }),
   btnContainer: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
     justifyContent: "center",
     alignItems: "center",
   },

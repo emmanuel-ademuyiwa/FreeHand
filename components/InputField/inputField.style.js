@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium,
     textTransform: "capitalize",
   },
+
   inputFieldWrapper: {
     flex: 1,
     backgroundColor: COLORS.lightPrimary,
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: SIZES.xSmall,
-    height: 50,
+    height: 55,
     width: "100%",
   },
   inputField: {
@@ -51,8 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   errorMessage: {
-    color: COLORS.red,
-    marginLeft: 10,
+    color: COLORS.tertiary,
   },
 });
 
