@@ -14,7 +14,7 @@ export default SelectButton;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.veryLightPrimary,
+    backgroundColor: COLORS.transparentWhite,
     height: SIZES.xLarge,
     flexDirection: "row",
     justifyContent: "center",
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: SIZES.xSmall - .9,
+    fontSize: SIZES.xSmall - 0.9,
     fontFamily: FONT.medium,
   },
 });

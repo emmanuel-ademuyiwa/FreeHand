@@ -4,9 +4,9 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingVertical: SIZES.large,
-    gap: SIZES.xLarge,
-    marginTop: SIZES.xSmall,
+    paddingVertical: SIZES.medium,
+    gap: SIZES.small,
+    marginTop: SIZES.xxSmall,
   },
 
   newTitle: {

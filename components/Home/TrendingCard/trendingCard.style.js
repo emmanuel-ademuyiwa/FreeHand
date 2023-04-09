@@ -2,18 +2,27 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
-  container: (selectedJob, item) => ({
-    width: 270,
-    height: 290,
+  container: {
+    width: "100%",
     paddingVertical: SIZES.small,
     paddingHorizontal: SIZES.xxSmall,
-    backgroundColor:
-      selectedJob === item.job_id ? COLORS.tertiary : COLORS.lightGreen,
+    backgroundColor: COLORS.white,
     borderRadius: SIZES.xxSmall / 2,
     justifyContent: "space-between",
     ...SHADOWS.small,
     shadowColor: COLORS.lightGreen,
-  }),
+    gap: SIZES.large,
+  },
+
+  flexHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  innerFlexHeader: {
+    gap: SIZES.small,
+    flex: 7,
+  },
 
   header: {
     flexDirection: "row",
@@ -22,13 +31,13 @@ const styles = StyleSheet.create({
   },
   jobType: {
     fontFamily: FONT.bold,
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: SIZES.large,
   },
   headerSmallText: {
-    fontFamily: FONT.medium,
-    color: COLORS.white,
-    fontSize: SIZES.xSmall,
+    fontFamily: FONT.regular,
+    color: COLORS.black,
+    fontSize: SIZES.xxSmall,
   },
   nameContainer: {
     flexDirection: "row",
@@ -39,7 +48,11 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: FONT.bold,
     fontSize: SIZES.medium,
-    color: COLORS.white,
+    color: COLORS.black,
+  },
+  iconHolder: {
+    flex: 2.5,
+    alignItems: "flex-end",
   },
 
   iconContainer: {
@@ -52,13 +65,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  logoContainer: (selectedJob, item) => ({
+  logoContainer: {
     width: 32,
     height: 32,
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
-  }),
+    },
+  
   logoImage: {
     width: "100%",
     height: "100%",
@@ -67,14 +81,11 @@ const styles = StyleSheet.create({
 
   selectButtonContainer: {
     flexDirection: "row",
-    gap: SIZES.xxSmall / 2,
+    gap: SIZES.xxSmall,
   },
 
   outsideScroll: {
     maxHeight: 50,
-    borderBottomColor: COLORS.deepGreen,
-    borderBottomWidth: 1,
-    paddingBottom: 60,
   },
 
   companyName: {

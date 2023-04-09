@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: COLORS.primary,
     paddingHorizontal: SIZES.medium,
-    paddingBottom: SIZES.xxLarge,
+    paddingBottom: SIZES.xxLarge * 3,
   },
 
   jobs: {

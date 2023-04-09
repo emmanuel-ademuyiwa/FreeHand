@@ -1,11 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
+import { COLORS } from "../../constants";
 
 const Messages = () => {
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
       <Text>Messages</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

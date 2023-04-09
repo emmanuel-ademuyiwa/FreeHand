@@ -1,18 +1,19 @@
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Button, SafeAreaView } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import { COLORS } from "../../constants";
 
 const Notification = () => {
   const navigation = useNavigation();
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
       <Button
         title="Go Notification details"
         onPress={() => {
-          navigation.navigate("Notification-Details");
+          navigation.navigate("notification-details");
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

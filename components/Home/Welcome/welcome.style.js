@@ -8,10 +8,6 @@ const styles = StyleSheet.create({
     gap: SIZES.xLarge,
   },
 
-  userNameContainer: {
-    gap: SIZES.medium,
-  },
-
   hello: {
     fontFamily: FONT.bold,
     fontSize: SIZES.xxLarge,

@@ -11,21 +11,20 @@ import NotificationDetails from "./components/Notification/NotificationDetails/N
 import Welcome from "./screens/Welcome/Welcome";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
+import { useCallback, useLayoutEffect } from "react";
 import { StatusBar } from "react-native";
 import SignIn from "./screens/Onboarding/SignIn/SignIn";
 import ForgetPassword from "./screens/Onboarding/ForgetPassword/ForgetPassword";
 import SignUp from "./screens/Onboarding/SignUp/SignUp";
 import CheckEmail from "./screens/Onboarding/CheckEmail/CheckEmail";
 import PasswordResetSuccess from "./screens/Onboarding/PasswordResetSucess/PasswordResetSucess";
-import { BlurView } from "expo-blur";
+import { useRoute } from "@react-navigation/native";
 
 import { COLORS, SHADOWS, SIZES } from "./constants";
 import Icon from "react-native-vector-icons/Ionicons";
 import TabBar from "./navigatiors/TabBar/TabBar";
 import tabStyles from "./navigatiors/TabBar/tabBar.style";
 
-// SplashScreen.preventAutoHideAsync();
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -35,23 +34,22 @@ function TabStack() {
       screenOptions={{
         tabBarStyle: {
           position: "absolute",
-          bottom: SIZES.large,
-          marginHorizontal: 5,
+          bottom: SIZES.xxSmall,
+          marginHorizontal: SIZES.medium,
           paddingHorizontal: SIZES.large,
           paddingTop: 30,
           gap: 0,
           borderColor: "none",
-          backgroundColor: "#ffffff80",
-          ...SHADOWS.medium,
-          shadowColor: COLORS.white,
+          backgroundColor: COLORS.transparentWhite,
+          ...SHADOWS.large,
           borderRadius: SIZES.xxLarge * 2,
         },
       }}
-      // tabBar={(props) => <TabBar {...props} />}
     >
       <Tab.Screen
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({ focused, route }) => (
             <TouchableOpacity
               style={[tabStyles.tab, focused && tabStyles.activeTab]}
@@ -70,17 +68,22 @@ function TabStack() {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarShowLabel: false,
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, route }) => (
             <TouchableOpacity
-              style={[tabStyles.tab, focused && tabStyles.longActiveTab]}
+              style={[
+                tabStyles.tab,
+                route === "Messages" && tabStyles.conditionalPositionTwo,
+                focused && tabStyles.activeTab,
+              ]}
             >
               <Icon
                 name="notifications-outline"
                 size={20}
                 color={focused ? COLORS.veryLightPrimary : COLORS.black}
               />
-              {focused && <Text style={tabStyles.text}>Notification</Text>}
+              {focused && <Text style={tabStyles.text}>Alerts</Text>}
             </TouchableOpacity>
           ),
         }}
@@ -89,17 +92,18 @@ function TabStack() {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarShowLabel: false,
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, route }) => (
             <TouchableOpacity
-              style={[tabStyles.tab, focused && tabStyles.longActiveTab]}
+              style={[tabStyles.tab, focused && tabStyles.activeTab]}
             >
               <Icon
                 name="chatbox-ellipses-outline"
                 size={20}
                 color={focused ? COLORS.veryLightPrimary : COLORS.black}
               />
-              {focused && <Text style={tabStyles.text}>Messages</Text>}
+              {focused && <Text style={tabStyles.text}>Inbox</Text>}
             </TouchableOpacity>
           ),
         }}
@@ -108,8 +112,9 @@ function TabStack() {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarShowLabel: false,
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, route }) => (
             <TouchableOpacity
               style={[tabStyles.tab, focused && tabStyles.activeTab]}
             >
@@ -189,14 +194,6 @@ export default function App() {
     DMMedium: require("./assets/fonts/DMSans-Medium.ttf"),
     DMRegular: require("./assets/fonts/DMSans-Regular.ttf"),
   });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) return null;
 
   return (
     <NavigationContainer styles={{ backgroundColor: COLORS.primary }}>

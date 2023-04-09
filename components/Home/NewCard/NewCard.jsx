@@ -5,13 +5,18 @@ import styles from "./newCard.style";
 import { icons, images } from "../../../constants";
 import Tag from "../../Tag/Tag";
 import SelectButton from "../../SelectButton/SelectButton";
+import { useNavigation } from "@react-navigation/native";
 
 const NewCard = () => {
+  const navigation = useNavigation();
   const selectedJob = "web";
   const item = "web";
 
   return (
-    <TouchableOpacity style={styles.container(selectedJob, item)}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("details")}
+      style={styles.container(selectedJob, item)}
+    >
       <View style={styles.header}>
         <Text style={styles.jobType}>UI Designer</Text>
         <Text style={styles.headerSmallText}>Rs 2-5 LPA</Text>

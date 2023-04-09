@@ -15,6 +15,8 @@ const New = () => {
       >
         <NewCard />
         <NewCard />
+        <NewCard />
+        <NewCard />
       </ScrollView>
     </View>
   );
