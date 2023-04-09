@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     position: "absolute",
     right: 10,
-    top: 13,
+    top: 17,
     width: 20,
     height: 20,
     justifyContent: "center",
